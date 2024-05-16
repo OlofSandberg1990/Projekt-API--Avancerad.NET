@@ -23,7 +23,7 @@ namespace Projekt_API__Avancerad.NET.Data
             base.OnModelCreating(modelBuilder);
                         
 
-            // Seed data
+            //Seed data
             modelBuilder.Entity<Company>().HasData(
                 new Company { Id = 1, Name = "Gekås", Email = "kontakt@gekas.se", Password = "Test123" },
                 new Company { Id = 2, Name = "ICA", Email = "kontakt@ica.se", Password = "Test123" },

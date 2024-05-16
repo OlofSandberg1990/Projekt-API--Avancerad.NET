@@ -326,7 +326,7 @@ namespace Projekt_API__Avancerad.NET.Controllers
         {
             if (!IsAdminOrCustomer())
             {
-
+                return Unauthorized("Only admin and customers have access");
             }                
 
             try
