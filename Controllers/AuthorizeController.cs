@@ -8,11 +8,11 @@ namespace Projekt_API__Avancerad.NET.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class AuthController : ControllerBase
+    public class AuthorizeController : ControllerBase
     {
         private readonly IAuthorize _authorizeRepo;
 
-        public AuthController(IAuthorize authorizeRepo)
+        public AuthorizeController(IAuthorize authorizeRepo)
         {
             _authorizeRepo = authorizeRepo;
         }

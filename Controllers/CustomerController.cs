@@ -118,7 +118,7 @@ namespace Projekt_API__Avancerad.NET.Controllers
                     CustomerId = c.Id,
                     CustomerName = c.Name,
                     Appointments = c.Appointments.Select(a => new
-                    {
+                    {                        
                         a.Id,
                         a.StartTime,
                         a.DurationInMinutes,
@@ -217,12 +217,20 @@ namespace Projekt_API__Avancerad.NET.Controllers
 
                 var appointments = customer.Appointments.Select(a => new
                 {
-                    a.Id,
-                    a.StartTime,
-                    a.DurationInMinutes,
-                    a.Title,
-                    a.CompanyId
-                    
+                    CustomerId = customer.Id,
+                    CustomerName = customer.Name,
+                    CustomerEmail = customer.Email,
+                    CustomerPhone = customer.Phone,                    
+                    Appointments = customer.Appointments.Select(a => new
+                    {
+                        a.Id,
+                        a.StartTime,
+                        a.DurationInMinutes,
+                        a.Title,
+                        a.Description,
+                        a.CompanyId
+                    }).ToList()
+
                 });
 
                 return Ok(appointments);
