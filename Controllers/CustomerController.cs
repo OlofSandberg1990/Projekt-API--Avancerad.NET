@@ -215,12 +215,12 @@ namespace Projekt_API__Avancerad.NET.Controllers
                     return NotFound($"Customer with ID {customerId} not found");
                 }
 
-                var appointments = customer.Appointments.Select(a => new
+                var result = new
                 {
                     CustomerId = customer.Id,
                     CustomerName = customer.Name,
                     CustomerEmail = customer.Email,
-                    CustomerPhone = customer.Phone,                    
+                    CustomerPhone = customer.Phone,
                     Appointments = customer.Appointments.Select(a => new
                     {
                         a.Id,
@@ -230,10 +230,9 @@ namespace Projekt_API__Avancerad.NET.Controllers
                         a.Description,
                         a.CompanyId
                     }).ToList()
+                };
 
-                });
-
-                return Ok(appointments);
+                return Ok(result);
             }
             catch (Exception)
             {
